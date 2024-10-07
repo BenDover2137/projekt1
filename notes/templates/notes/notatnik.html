@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOTATKI</title>
+
+</head>
+<body>
+    <h1>notatki</h1>
+    <a href="{% url 'note_create' %}">Dodaj nową notatkę</a>
+    <a href="{% url 'login' %}">Zaloguj się</a>
+    <ul>
+        {% for note in notes %}
+            <li>
+                <a href="{% url 'note_detail' note.pk %}">{{ note.title }}</a>
+                <p>{{ note.content }}</p>
+                <p>Autor: {{ note.author.username }}</p>
+                <p>Data utworzenia: {{ note.created_at }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

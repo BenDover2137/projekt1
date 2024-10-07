@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Potwierdzenie usunięcia</title>
+</head>
+<body>
+    <h1>Czy na pewno chcesz usunąć tę notatkę?</h1>
+    <p>{{ note.title }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Usuń</button>
+        <a href="{% url 'note_list' %}">Anuluj</a>
+    </form>
+</body>
+</html>
