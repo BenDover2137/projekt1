@@ -1,0 +1,22 @@
+h1{
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    font-size: 40px;
+
+    color: white;
+    background: black;
+    border-radius: 5px;
+}
+form{
+    button{
+        text-decoration: none;
+    font-size: 40px;
+
+    color: white;
+    background: black;
+    border-radius: 5px;
+    }
+
+}

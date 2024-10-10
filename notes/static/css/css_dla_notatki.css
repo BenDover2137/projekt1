@@ -1,0 +1,41 @@
+h1{
+    text-align: center;
+    text-transform: uppercase;
+
+}
+.zawartosc{
+    text-align: center;
+    margin: auto;
+    font-size: 30px;
+}
+.guziki{
+    text-align: center;
+    margin: 10px;
+    margin-top: 50px;
+    text-transform: uppercase;
+    a{
+        text-decoration: none;
+        font-size: 40px;
+        margin: 10px;
+        padding: 10px;
+        color: white;
+        border: 1px solid black;
+        background: black;
+        border-radius: 5px;
+    }
+    form{
+        margin: 15px;
+        button{
+            font-size:40px ;
+            background: black;
+            color: white;
+            border: 1px solid black;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+    }
+
+}
+a{
+    margin: 5px;
+}

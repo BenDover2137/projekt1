@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj/Edycja Notatki</title>
+    <link href="{% static "css/edycja.css" %}" rel="stylesheet">
+</head>
+<body>
+ <h1>{% if form.instance.pk %}Edytuj Notatkę{% else %}Dodaj Notatkę{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Zapisz</button>
+</form>
+<a href="{% url 'note_list' %}">Powrót do notatek</a>
+
+    </form>
+</body>
+</html>
