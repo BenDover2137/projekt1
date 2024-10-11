@@ -8,13 +8,19 @@
 </head>
 <body>
  <h1>{% if form.instance.pk %}Edytuj Notatkę{% else %}Dodaj Notatkę{% endif %}</h1>
+ 
 <form method="post">
+    
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form.as_p}}
+    
     <button type="submit">Zapisz</button>
 </form>
-<a href="{% url 'note_list' %}">Powrót do notatek</a>
+<div clas="a">
+    <a href="{% url 'note_list' %}">Powrót do notatek</a>
+</div>
 
-    </form>
+
+    
 </body>
 </html>

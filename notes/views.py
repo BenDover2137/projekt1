@@ -4,6 +4,8 @@ from .forms import NoteForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
+from django.core.paginator import Paginator, PageNotAnInteger,EmptyPage
+from django.views.generic import ListView
 
 def login_view(request):
     if request.method == 'POST':
@@ -15,9 +17,11 @@ def login_view(request):
             if user is not None:
                 login(request, user)
                 return redirect('note_list')
+
     else:
         form = AuthenticationForm()
     return render(request, 'registration/login.html', {'form': form})
+
 from django.contrib.auth import logout
 from django.shortcuts import redirect
 
@@ -44,6 +48,15 @@ def note_create(request):
 
 def note_list(request):
     notes = Note.objects.all()
+    paginator = Paginator(notes, 3)
+    page = request.GET.get('page')
+    try :
+        notes = paginator.page(page)
+    except PageNotAnInteger:
+        notes = paginator.page(1)
+    except EmptyPage:
+        notes = paginator.page(Paginator.num_pages)
+
     return render(request, 'notes/notatnik.html', {'notes': notes})
 
 
@@ -72,3 +85,8 @@ def note_delete(request, pk):
     note = get_object_or_404(Note, pk=pk)
     note.delete()
     return redirect('note_list')
+
+class PostListView(Note):
+    template_name = 'notatnik.html'
+    context_object_name = 'notes'
+    paginate_by=3

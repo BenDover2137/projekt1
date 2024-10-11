@@ -8,6 +8,11 @@ a{
     color: white;
     background: black;
     border-radius: 5px;
+
+}
+ .a{
+    color: red;
+     background: white;
 }
 form{
     button{
@@ -19,4 +24,9 @@ form{
     border-radius: 5px;
     }
 
+
 }
+p{
+    font-size: 20px;
+}
+

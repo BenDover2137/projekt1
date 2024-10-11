@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>{{ note.title }}</h1>
-<div class="zawartosc">{{ note.content }}</div>
+<div class="zawartosc">Tresc: {{ note.content }}</div>
 <div class="guziki">
     <a href="{% url 'note_edit' note.pk %}">Edytuj</a>
 <form method="POST" action="{% url 'note_delete' note.pk %}">
