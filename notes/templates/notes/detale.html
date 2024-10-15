@@ -9,6 +9,7 @@
 <body>
 <h1>{{ note.title }}</h1>
 <div class="zawartosc">Tresc: {{ note.content }}</div>
+<h2>{{ note.importance }}</h2>
 <div class="guziki">
     <a href="{% url 'note_edit' note.pk %}">Edytuj</a>
 <form method="POST" action="{% url 'note_delete' note.pk %}">

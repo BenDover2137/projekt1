@@ -75,6 +75,7 @@ def note_edit(request, pk):
             return redirect('note_detail', pk=note.pk)
     else:
         form = NoteForm(instance=note)
+
     return render(request, 'notes/form.html', {'form': form})
 
 from django.contrib.auth.decorators import login_required
