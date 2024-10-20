@@ -23,7 +23,12 @@ from django.shortcuts import redirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     path('notes/', include('notes.urls')),
     path('', lambda request: redirect('note_list')),
+=======
+    path('notes/', include('notes.urls')),  # Dodajemy wszystkie URL-e z aplikacji 'notes'
+    path('', lambda request: redirect('note_list')),  # Przekierowanie na listę notatek
+>>>>>>> bcd463fa155895d281d17e13cb33b5f89f695e4f
 ]
 
