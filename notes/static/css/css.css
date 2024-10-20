@@ -1,0 +1,60 @@
+body {
+    background: #546e83;
+}
+
+a {
+    border-bottom: solid white 1px;
+    text-decoration: none;
+    font-size: 40px;
+    color: white;
+    background:#546e83 ;
+    border-radius: 5px;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+
+a:hover {
+    background: wheat;
+    color: #546e83;
+}
+
+h1 {
+    font-family:Arial;
+    background-color:#718da4 ;
+    border: 3px dotted whitesmoke;
+    color: white;
+    text-align: center;
+    font-size: 50px;
+}
+
+.notatka {
+    background: #acbcca;
+    border: 3px dotted black;
+    width: 400px;
+    margin: auto;
+    margin-top: 5px;
+    font-size: 30px;
+    padding-top: 3px;
+    text-align: center;
+}
+
+.notatka a {
+    border: 1px solid black;
+    color: black;
+    background:#546e83 ;
+    padding: 5px 10px;
+    font-size: 20px;
+}
+
+.notatka a:hover {
+    color: papayawhip;
+}
+
+main {
+    justify-content: center;
+}
+
+.logowanie {
+    float: right;
+}

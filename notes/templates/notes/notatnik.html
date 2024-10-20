@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/css.css' %}" rel="stylesheet">
+    <title>NOTATKI</title>
+</head>
+<body>
+    <h1>NOTATKI</h1>
+    <a href="{% url 'note_create' %}">Dodaj nową notatkę</a>
+    <a class="logowanie" href="{% url 'login' %}">Zaloguj się</a>
+    <main>
+        {% for note in notes %}
+            <div class="notatka">
+                <a href="{% url 'note_detail' note.pk %}">{{ note.title }}</a>
+                <p>Autor: {{ note.author.username }}</p>
+                <p>Data utworzenia: {{ note.created_at }}</p>
+                <p>waznosc: {{ note.importance }}</p>
+                <a href="{% url 'note_edit' note.pk %}">Edytuj</a>
+                <a href="{% url 'note_delete' note.pk %}">Usuń</a>
+            </div>
+        {% endfor %}
+        {% include "notes/pagination.html" with page=notes %}
+    </main>
+</body>
+</html>
+

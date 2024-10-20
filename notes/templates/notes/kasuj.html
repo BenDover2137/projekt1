@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Potwierdzenie</title>
+</head>
+<body>
+    <h1>usunąć te notatke?</h1>
+    <p>{{ note.title }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Usuń</button>
+        <a href="{% url 'note_list' %}">Powrót do notatek</a>
+    </form>
+</body>
+</html>
+
+
