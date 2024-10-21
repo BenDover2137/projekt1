@@ -1,13 +1,9 @@
-<<<<<<< HEAD
 {% load static %}
-=======
->>>>>>> bcd463fa155895d281d17e13cb33b5f89f695e4f
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{{ note.title }}</title>
-<<<<<<< HEAD
     <link href="{% static "css/css_dla_notatki.css" %}" rel="stylesheet">
 </head>
 <body>
@@ -16,25 +12,11 @@
 <h2>{{ note.importance }}</h2>
 <div class="guziki">
     <a class="btn btn-primary" href="{% url 'note_edit' note.pk %}">Edytuj</a>
-    <form method="POST" action="{% url 'note_delete' note.pk %}" style="display:inline;" onsubmit="return confirm('Ma pewno usunąć?');">
+    <form method="POST" action="{% url 'note_delete' note.pk %}" style="display:inline;" onsubmit="return confirm('Na pewno usunąć?');">
         {% csrf_token %}
         <button type="submit" class="btn btn-danger">Usuń</button>
     </form>
     <a class="btn btn-secondary" href="{% url 'note_list' %}">Powrót do notatek</a>
 </div>
-
-=======
-</head>
-<body>
-<h1>{{ note.title }}</h1>
-<p>{{ note.content }}</p>
-<a href="{% url 'note_edit' note.pk %}">Edytuj</a>
-<form method="POST" action="{% url 'note_delete' note.pk %}">
-    {% csrf_token %}
-    <button type="submit">Usuń Notatkę</button>
-</form>
-<a href="{% url 'note_list' %}">Powrót do notatek</a>
->>>>>>> bcd463fa155895d281d17e13cb33b5f89f695e4f
-
 </body>
 </html>

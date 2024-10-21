@@ -1,14 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Note
 from .forms import NoteForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
-<<<<<<< HEAD
-from django.core.paginator import Paginator, PageNotAnInteger,EmptyPage
-from django.views.generic import ListView
-=======
->>>>>>> bcd463fa155895d281d17e13cb33b5f89f695e4f
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 def login_view(request):
     if request.method == 'POST':
@@ -20,26 +16,13 @@ def login_view(request):
             if user is not None:
                 login(request, user)
                 return redirect('note_list')
-<<<<<<< HEAD
-
     else:
         form = AuthenticationForm()
     return render(request, 'registration/login.html', {'form': form})
-
-=======
-    else:
-        form = AuthenticationForm()
-    return render(request, 'registration/login.html', {'form': form})
->>>>>>> bcd463fa155895d281d17e13cb33b5f89f695e4f
-from django.contrib.auth import logout
-from django.shortcuts import redirect
-
 
 def logout_view(request):
     logout(request)
     return redirect('note_list')
-
-
 
 @login_required
 def note_create(request):
@@ -54,28 +37,22 @@ def note_create(request):
         form = NoteForm()
     return render(request, 'notes/form.html', {'form': form})
 
-
 def note_list(request):
     notes = Note.objects.all()
-<<<<<<< HEAD
-    paginator = Paginator(notes, 3)
+    paginator = Paginator(notes, 3)  # 3 notatki na stronę
     page = request.GET.get('page')
-    try :
+    try:
         notes = paginator.page(page)
     except PageNotAnInteger:
         notes = paginator.page(1)
     except EmptyPage:
-        notes = paginator.page(Paginator.num_pages)
+        notes = paginator.page(paginator.num_pages)
 
-=======
->>>>>>> bcd463fa155895d281d17e13cb33b5f89f695e4f
     return render(request, 'notes/notatnik.html', {'notes': notes})
-
 
 def note_detail(request, pk):
     note = get_object_or_404(Note, pk=pk)
     return render(request, 'notes/detale.html', {'note': note})
-
 
 @login_required
 def note_edit(request, pk):
@@ -87,29 +64,14 @@ def note_edit(request, pk):
             return redirect('note_detail', pk=note.pk)
     else:
         form = NoteForm(instance=note)
-<<<<<<< HEAD
 
-=======
->>>>>>> bcd463fa155895d281d17e13cb33b5f89f695e4f
     return render(request, 'notes/form.html', {'form': form})
-
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect
 
 @login_required
 def note_delete(request, pk):
     note = get_object_or_404(Note, pk=pk)
-<<<<<<< HEAD
     if request.method == 'POST':
         note.delete()
         return redirect('note_list')  # Przekierowanie po usunięciu
     return render(request, 'notes/kasuj.html', {'note': note})
 
-class PostListView(Note):
-    template_name = 'notatnik.html'
-    context_object_name = 'notes'
-    paginate_by=3
-=======
-    note.delete()
-    return redirect('note_list')
->>>>>>> bcd463fa155895d281d17e13cb33b5f89f695e4f
