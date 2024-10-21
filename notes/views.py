@@ -39,7 +39,7 @@ def note_create(request):
 
 def note_list(request):
     notes = Note.objects.all()
-    paginator = Paginator(notes, 3)  # 3 notatki na stronę
+    paginator = Paginator(notes, 3)
     page = request.GET.get('page')
     try:
         notes = paginator.page(page)
