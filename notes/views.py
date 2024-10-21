@@ -72,6 +72,6 @@ def note_delete(request, pk):
     note = get_object_or_404(Note, pk=pk)
     if request.method == 'POST':
         note.delete()
-        return redirect('note_list')  # Przekierowanie po usunięciu
+        return redirect('note_list')
     return render(request, 'notes/kasuj.html', {'note': note})
 
